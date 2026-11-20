@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 5 Lesson 1: ar</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .r { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 5 • Lesson 1</h1>
+  <h2>ar (r-controlled)</h2>
+  <p style="text-align:center;">Red = the “ar” sound. Other colours alternate.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('car')"><span class="p1">c</span><span class="r">ar</span></div>
+    <div class="word" onclick="speak('star')"><span class="p2">st</span><span class="r">ar</span></div>
+    <div class="word" onclick="speak('park')"><span class="p1">p</span><span class="r">ar</span><span class="p3">k</span></div>
+    <div class="word" onclick="speak('farm')"><span class="p2">f</span><span class="r">ar</span><span class="p1">m</span></div>
+    <div class="word" onclick="speak('hard')"><span class="p3">h</span><span class="r">ar</span><span class="p2">d</span></div>
+    <div class="word" onclick="speak('arm')"><span class="r">ar</span><span class="p1">m</span></div>
+  </div>
+  <h2>Story: Car and Star</h2>
+  <div class="story">
+    <p><span class="p1">We drove the </span><span class="r">c</span><span class="r">ar</span><span class="p2"> to the big park.</span></p>
+    <button onclick="speak('We drove the car to the big park.')">Hear sentence 1</button>
+    <p><span class="p2">At night we saw a bright </span><span class="r">st</span><span class="r">ar</span><span class="p3"> in the sky.</span></p>
+    <button onclick="speak('At night we saw a bright star in the sky.')">Hear sentence 2</button>
+    <p><span class="p3">The animals live on the </span><span class="r">f</span><span class="r">ar</span><span class="p1">m</span><span class="p2"> near the trees.</span></p>
+    <button onclick="speak('The animals live on the farm near the trees.')">Hear sentence 3</button>
+    <p><span class="p1">She raised her </span><span class="r">ar</span><span class="p3">m</span><span class="p2"> to wave goodbye.</span></p>
+    <button onclick="speak('She raised her arm to wave goodbye.')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red marks the “ar” sound. Other colours change so neighbouring parts look different.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
