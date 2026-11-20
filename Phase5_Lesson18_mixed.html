@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 5 Lesson 18: Mixed Review 13</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .r { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 5 • Lesson 18</h1>
+  <h2>Mixed Review 13</h2>
+  <p style="text-align:center;">Red = r-controlled sound. Other colours alternate.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('star')"><span class="p1">st</span><span class="r">ar</span></div>
+    <div class="word" onclick="speak('teacher')"><span class="p2">teach</span><span class="r">er</span></div>
+    <div class="word" onclick="speak('girl')"><span class="p1">g</span><span class="r">ir</span><span class="p3">l</span></div>
+    <div class="word" onclick="speak('corn')"><span class="p2">c</span><span class="r">or</span><span class="p1">n</span></div>
+    <div class="word" onclick="speak('nurse')"><span class="p3">n</span><span class="r">ur</span><span class="p2">se</span></div>
+    <div class="word" onclick="speak('farm')"><span class="p1">f</span><span class="r">ar</span><span class="p2">m</span></div>
+  </div>
+  <h2>Story: Mixed Review</h2>
+  <div class="story">
+    <p><span class="p1">We saw a bright </span><span class="r">st</span><span class="r">ar</span><span class="p2"> at night.</span></p>
+    <button onclick="speak('We saw a bright star at night.')">Hear sentence 1</button>
+    <p><span class="p2">The </span><span class="r">teach</span><span class="r">er</span><span class="p3"> read a story to the girl.</span></p>
+    <button onclick="speak('The teacher read a story to the girl.')">Hear sentence 2</button>
+    <p><span class="p3">The farmer grows yellow </span><span class="r">c</span><span class="r">or</span><span class="p1">n</span><span class="p2"> on the farm.</span></p>
+    <button onclick="speak('The farmer grows yellow corn on the farm.')">Hear sentence 3</button>
+    <p><span class="p1">The </span><span class="r">n</span><span class="r">ur</span><span class="p3">se</span><span class="p2"> helped the boy.</span></p>
+    <button onclick="speak('The nurse helped the boy.')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red marks the r-controlled sound. Other colours change so neighbouring parts look different.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
