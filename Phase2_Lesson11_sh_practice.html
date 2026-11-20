@@ -1,1 +1,57 @@
-placeholder
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 2 Lesson 11: sh Practice</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .dig { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 2 • Lesson 11</h1>
+  <h2>sh Practice (better colours)</h2>
+  <p style="text-align:center;">Red = the “sh” digraph. Other colours alternate so they don’t sit next to each other.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('ship')"><span class="dig">sh</span><span class="p1">ip</span></div>
+    <div class="word" onclick="speak('shop')"><span class="dig">sh</span><span class="p2">op</span></div>
+    <div class="word" onclick="speak('fish')"><span class="p1">fi</span><span class="dig">sh</span></div>
+    <div class="word" onclick="speak('shell')"><span class="dig">sh</span><span class="p3">ell</span></div>
+    <div class="word" onclick="speak('brush')"><span class="p2">bru</span><span class="dig">sh</span></div>
+    <div class="word" onclick="speak('splash')"><span class="p1">spla</span><span class="dig">sh</span></div>
+  </div>
+  <h2>Story: At the Shop</h2>
+  <div class="story">
+    <p><span class="p1">We went to the </span><span class="dig">sh</span><span class="p2">op to buy a new </span><span class="dig">sh</span><span class="p3">irt.</span></p>
+    <button onclick="speak('We went to the shop to buy a new shirt.')">Hear sentence 1</button>
+    <p><span class="p2">Mum also got some fresh </span><span class="dig">fi</span><span class="dig">sh</span><span class="p1"> for dinner.</span></p>
+    <button onclick="speak('Mum also got some fresh fish for dinner.')">Hear sentence 2</button>
+    <p><span class="p3">I found a pretty </span><span class="dig">sh</span><span class="p1">ell on the beach later.</span></p>
+    <button onclick="speak('I found a pretty shell on the beach later.')">Hear sentence 3</button>
+    <p><span class="p1">The big wave made a huge </span><span class="dig">spla</span><span class="dig">sh</span><span class="p2"> near the rocks.</span></p>
+    <button onclick="speak('The big wave made a huge splash near the rocks.')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red is always the “sh” sound. Other colours change so neighbouring parts look different.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9;
+        u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
