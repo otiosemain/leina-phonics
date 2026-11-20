@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 6 Lesson 2: Soft g</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .soft { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 6 • Lesson 2</h1>
+  <h2>Soft g</h2>
+  <p style="text-align:center;">Red = soft “g” (sounds like j).</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('age')"><span class="p1">a</span><span class="soft">g</span><span class="p2">e</span></div>
+    <div class="word" onclick="speak('gem')"><span class="soft">g</span><span class="p1">em</span></div>
+    <div class="word" onclick="speak('giant')"><span class="soft">g</span><span class="p2">iant</span></div>
+    <div class="word" onclick="speak('page')"><span class="p1">pa</span><span class="soft">g</span><span class="p3">e</span></div>
+    <div class="word" onclick="speak('orange')"><span class="p2">oran</span><span class="soft">g</span><span class="p1">e</span></div>
+    <div class="word" onclick="speak('magic')"><span class="p3">ma</span><span class="soft">g</span><span class="p2">ic</span></div>
+  </div>
+  <h2>Story: Soft g</h2>
+  <div class="story">
+    <p><span class="p1">What is your </span><span class="soft">a</span><span class="soft">g</span><span class="p2">e</span><span class="p3">?</span></p>
+    <button onclick="speak('What is your age?')">Hear sentence 1</button>
+    <p><span class="p2">The </span><span class="soft">g</span><span class="p1">iant</span><span class="p3"> is very tall.</span></p>
+    <button onclick="speak('The giant is very tall.')">Hear sentence 2</button>
+    <p><span class="p3">Please turn the </span><span class="p1">pa</span><span class="soft">g</span><span class="p2">e</span><span class="p1">.</span></p>
+    <button onclick="speak('Please turn the page.')">Hear sentence 3</button>
+    <p><span class="p1">The </span><span class="p2">ma</span><span class="soft">g</span><span class="p3">ic</span><span class="p2"> show was fun.</span></p>
+    <button onclick="speak('The magic show was fun.')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red marks the soft g. Other colours change so neighbouring parts look different.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
