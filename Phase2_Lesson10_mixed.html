@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 2 Lesson 10: Mixed Digraph Practice</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .s1 { color: #e74c3c; font-weight: bold; }
+  .s2 { color: #3498db; font-weight: bold; }
+  .s3 { color: #27ae60; font-weight: bold; }
+  .s4 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 2 • Lesson 10</h1>
+  <h2>Mixed Digraph Practice</h2>
+  <p style="text-align:center;">Practice all the digraphs together. Tap to hear.</p>
+
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('phone')"><span class="s1">ph</span><span class="s2">one</span></div>
+    <div class="word" onclick="speak('sing')"><span class="s2">si</span><span class="s1">ng</span></div>
+    <div class="word" onclick="speak('queen')"><span class="s1">qu</span><span class="s2">een</span></div>
+    <div class="word" onclick="speak('duck')"><span class="s3">du</span><span class="s1">ck</span></div>
+    <div class="word" onclick="speak('when')"><span class="s1">wh</span><span class="s4">en</span></div>
+    <div class="word" onclick="speak('fish')"><span class="s2">fi</span><span class="s1">sh</span></div>
+  </div>
+
+  <h2>Story: A Fun Day</h2>
+  <div class="story">
+    <p><span class="s1">The qu</span><span class="s2">een took a ph</span><span class="s1">oto of the ki</span><span class="s1">ng si</span><span class="s1">nging a so</span><span class="s1">ng.</span></p>
+    <button onclick="speak('The queen took a photo of the king singing a song.')">Hear sentence 1</button>
+
+    <p><span class="s3">We saw a big wh</span><span class="s4">ale jump near the ship.</span></p>
+    <button onclick="speak('We saw a big whale jump near the ship.')">Hear sentence 2</button>
+
+    <p><span class="s2">She gave the du</span><span class="s1">ck some fi</span><span class="s1">sh for lun</span><span class="s1">ch.</span></p>
+    <button onclick="speak('She gave the duck some fish for lunch.')">Hear sentence 3</button>
+
+    <p><span class="s4">Everyone felt happy after the long chat.</span></p>
+    <button onclick="speak('Everyone felt happy after the long chat.')">Hear sentence 4</button>
+  </div>
+
+  <div class="practice">
+    Practice: Point to each coloured digraph and say its sound before reading the whole word.
+  </div>
+
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9;
+        u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
