@@ -38,4 +38,21 @@
     <button onclick="speak('She found a shiny gem in the magic box.')">Hear sentence 2</button>
     <p><span class="p3">Please turn the </span><span class="p1">pa</span><span class="soft">g</span><span class="p2">e</span><span class="p1"> carefully.</span></p>
     <button onclick="speak('Please turn the page carefully.')">Hear sentence 3</button>
-    <p><span class="p1">It was a very </span><span class="p2">ni</span><span class="soft">c</span><span class="p3">e</span><span class=
+    <p><span class="p1">It was a very </span><span class="p2">ni</span><span class="soft">c</span><span class="p3">e</span><span class="p2"> day for everyone.</span></p>
+    <button onclick="speak('It was a very nice day for everyone.')">Hear sentence 4</button>
+    <p><span class="p2">Now you can read words with soft c and soft g!</span></p>
+    <button onclick="speak('Now you can read words with soft c and soft g!')">Hear sentence 5</button>
+  </div>
+  <div class="practice">Red marks the soft c or soft g. Other colours change so neighbouring parts look different. Great job finishing Phase 6!</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
