@@ -1,1 +1,57 @@
-placeholder
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 2 Lesson 12: ch Practice</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .dig { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 2 • Lesson 12</h1>
+  <h2>ch Practice</h2>
+  <p style="text-align:center;">Red = the “ch” digraph. Other colours alternate.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('chat')"><span class="dig">ch</span><span class="p1">at</span></div>
+    <div class="word" onclick="speak('chip')"><span class="dig">ch</span><span class="p2">ip</span></div>
+    <div class="word" onclick="speak('much')"><span class="p1">mu</span><span class="dig">ch</span></div>
+    <div class="word" onclick="speak('lunch')"><span class="p2">lun</span><span class="dig">ch</span></div>
+    <div class="word" onclick="speak('chair')"><span class="dig">ch</span><span class="p3">air</span></div>
+    <div class="word" onclick="speak('cheese')"><span class="dig">ch</span><span class="p1">eese</span></div>
+  </div>
+  <h2>Story: Lunch Time</h2>
+  <div class="story">
+    <p><span class="p1">We sat on the </span><span class="dig">ch</span><span class="p2">air and had a long </span><span class="dig">ch</span><span class="p3">at.</span></p>
+    <button onclick="speak('We sat on the chair and had a long chat.')">Hear sentence 1</button>
+    <p><span class="p2">Mum made tasty </span><span class="dig">ch</span><span class="p1">eese and </span><span class="dig">ch</span><span class="p3">ips for </span><span class="dig">lun</span><span class="dig">ch</span><span class="p1">.</span></p>
+    <button onclick="speak('Mum made tasty cheese and chips for lunch.')">Hear sentence 2</button>
+    <p><span class="p3">I said thank you so </span><span class="dig">mu</span><span class="dig">ch</span><span class="p2"> for the food.</span></p>
+    <button onclick="speak('I said thank you so much for the food.')">Hear sentence 3</button>
+    <p><span class="p1">After lunch we played a fun game of </span><span class="dig">ch</span><span class="p2">ess.</span></p>
+    <button onclick="speak('After lunch we played a fun game of chess.')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red is always the “ch” sound. Neighbouring parts use different colours.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9;
+        u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
