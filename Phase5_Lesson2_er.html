@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 5 Lesson 2: er</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .r { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 5 • Lesson 2</h1>
+  <h2>er (r-controlled)</h2>
+  <p style="text-align:center;">Red = the “er” sound. Other colours alternate.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('her')"><span class="p1">h</span><span class="r">er</span></div>
+    <div class="word" onclick="speak('sister')"><span class="p2">sist</span><span class="r">er</span></div>
+    <div class="word" onclick="speak('water')"><span class="p1">wat</span><span class="r">er</span></div>
+    <div class="word" onclick="speak('after')"><span class="p3">aft</span><span class="r">er</span></div>
+    <div class="word" onclick="speak('letter')"><span class="p2">lett</span><span class="r">er</span></div>
+    <div class="word" onclick="speak('teacher')"><span class="p1">teach</span><span class="r">er</span></div>
+  </div>
+  <h2>Story: Her Sister</h2>
+  <div class="story">
+    <p><span class="p1">This is </span><span class="r">h</span><span class="r">er</span><span class="p2"> favourite book.</span></p>
+    <button onclick="speak('This is her favourite book.')">Hear sentence 1</button>
+    <p><span class="p2">My </span><span class="r">sist</span><span class="r">er</span><span class="p3"> likes to read after school.</span></p>
+    <button onclick="speak('My sister likes to read after school.')">Hear sentence 2</button>
+    <p><span class="p3">Please give the </span><span class="r">teach</span><span class="r">er</span><span class="p1"> the letter.</span></p>
+    <button onclick="speak('Please give the teacher the letter.')">Hear sentence 3</button>
+    <p><span class="p1">We need more </span><span class="r">wat</span><span class="r">er</span><span class="p2"> for the plants.</span></p>
+    <button onclick="speak('We need more water for the plants.')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red marks the “er” sound. Other colours change so neighbouring parts look different.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
