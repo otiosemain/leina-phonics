@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 1 Lesson 1: -at Family</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .s1 { color: #e74c3c; font-weight: bold; }
+  .s2 { color: #3498db; font-weight: bold; }
+  .s3 { color: #27ae60; font-weight: bold; }
+  .s4 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+</style>
+</head>
+<body>
+  <h1>Phase 1 • Lesson 1</h1>
+  <h2>-at Family</h2>
+  <p style="text-align:center;">Tap the words or sentences to hear them.</p>
+
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('cat')"><span class="s1">cat</span></div>
+    <div class="word" onclick="speak('hat')"><span class="s2">hat</span></div>
+    <div class="word" onclick="speak('mat')"><span class="s3">mat</span></div>
+    <div class="word" onclick="speak('bat')"><span class="s4">bat</span></div>
+    <div class="word" onclick="speak('sat')"><span class="s1">sat</span></div>
+    <div class="word" onclick="speak('fat')"><span class="s2">fat</span></div>
+  </div>
+
+  <h2>Story: The Cat and the Hat</h2>
+  <div class="story">
+    <p><span class="s1">The cat sat on the mat.</span></p>
+    <button onclick="speak('The cat sat on the mat.')">Hear sentence 1</button>
+    <p><span class="s2">She had a big hat.</span></p>
+    <button onclick="speak('She had a big hat.')">Hear sentence 2</button>
+    <p><span class="s3">The bat flew over the fat cat.</span></p>
+    <button onclick="speak('The bat flew over the fat cat.')">Hear sentence 3</button>
+  </div>
+
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9;
+        u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
