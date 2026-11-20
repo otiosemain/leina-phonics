@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 3 Lesson 12: cr Blends</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .bl { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 3 • Lesson 12</h1>
+  <h2>cr Blends</h2>
+  <p style="text-align:center;">Red = the “cr” blend. Other colours alternate.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('crab')"><span class="bl">cr</span><span class="p1">ab</span></div>
+    <div class="word" onclick="speak('cry')"><span class="bl">cr</span><span class="p2">y</span></div>
+    <div class="word" onclick="speak('cream')"><span class="bl">cr</span><span class="p1">eam</span></div>
+    <div class="word" onclick="speak('cross')"><span class="bl">cr</span><span class="p3">oss</span></div>
+    <div class="word" onclick="speak('crunch')"><span class="bl">cr</span><span class="p2">unch</span></div>
+    <div class="word" onclick="speak('crown')"><span class="bl">cr</span><span class="p1">own</span></div>
+  </div>
+  <h2>Story: Crab and Cream</h2>
+  <div class="story">
+    <p><span class="p1">We saw a small </span><span class="bl">cr</span><span class="p2">ab on the beach.</span></p>
+    <button onclick="speak('We saw a small crab on the beach.')">Hear sentence 1</button>
+    <p><span class="p2">Please do not </span><span class="bl">cr</span><span class="p3">y if you drop your ice cream.</span></p>
+    <button onclick="speak('Please do not cry if you drop your ice cream.')">Hear sentence 2</button>
+    <p><span class="p3">Look both ways before you </span><span class="bl">cr</span><span class="p1">oss the road.</span></p>
+    <button onclick="speak('Look both ways before you cross the road.')">Hear sentence 3</button>
+    <p><span class="p1">The queen wore a shiny </span><span class="bl">cr</span><span class="p2">own.</span></p>
+    <button onclick="speak('The queen wore a shiny crown.')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red marks the “cr” blend. Other colours change so neighbouring parts look different.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
