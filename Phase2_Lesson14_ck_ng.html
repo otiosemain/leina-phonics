@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 2 Lesson 14: ck and ng Practice</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .dig { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 2 • Lesson 14</h1>
+  <h2>ck and ng Practice</h2>
+  <p style="text-align:center;">Red = the digraph (ck or ng). Other colours alternate.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('duck')"><span class="p1">du</span><span class="dig">ck</span></div>
+    <div class="word" onclick="speak('back')"><span class="p2">ba</span><span class="dig">ck</span></div>
+    <div class="word" onclick="speak('sing')"><span class="p1">si</span><span class="dig">ng</span></div>
+    <div class="word" onclick="speak('ring')"><span class="p2">ri</span><span class="dig">ng</span></div>
+    <div class="word" onclick="speak('king')"><span class="p3">ki</span><span class="dig">ng</span></div>
+    <div class="word" onclick="speak('rock')"><span class="p1">ro</span><span class="dig">ck</span></div>
+  </div>
+  <h2>Story: The King and the Duck</h2>
+  <div class="story">
+    <p><span class="p1">The </span><span class="dig">ki</span><span class="dig">ng</span><span class="p2"> walked </span><span class="dig">ba</span><span class="dig">ck</span><span class="p3"> to the pond.</span></p>
+    <button onclick="speak('The king walked back to the pond.')">Hear sentence 1</button>
+    <p><span class="p2">He saw a happy </span><span class="dig">du</span><span class="dig">ck</span><span class="p1"> swimming near a big </span><span class="dig">ro</span><span class="dig">ck</span><span class="p3">.</span></p>
+    <button onclick="speak('He saw a happy duck swimming near a big rock.')">Hear sentence 2</button>
+    <p><span class="p3">The duck liked to </span><span class="dig">si</span><span class="dig">ng</span><span class="p1"> a little song.</span></p>
+    <button onclick="speak('The duck liked to sing a little song.')">Hear sentence 3</button>
+    <p><span class="p1">The king gave it a shiny </span><span class="dig">ri</span><span class="dig">ng</span><span class="p2"> as a gift.</span></p>
+    <button onclick="speak('The king gave it a shiny ring as a gift.')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red is always the digraph sound. Neighbouring parts use different colours.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9;
+        u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
