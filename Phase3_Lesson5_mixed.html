@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 3 Lesson 5: Mixed Blends</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .bl { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 3 • Lesson 5</h1>
+  <h2>Mixed Blends (st, bl, cl, tr)</h2>
+  <p style="text-align:center;">Red = the blend. Other colours alternate.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('stop')"><span class="bl">st</span><span class="p1">op</span></div>
+    <div class="word" onclick="speak('blue')"><span class="bl">bl</span><span class="p2">ue</span></div>
+    <div class="word" onclick="speak('clap')"><span class="bl">cl</span><span class="p1">ap</span></div>
+    <div class="word" onclick="speak('tree')"><span class="bl">tr</span><span class="p3">ee</span></div>
+    <div class="word" onclick="speak('nest')"><span class="p2">ne</span><span class="bl">st</span></div>
+    <div class="word" onclick="speak('black')"><span class="bl">bl</span><span class="p1">ack</span></div>
+  </div>
+  <h2>Story: A Fun Trip</h2>
+  <div class="story">
+    <p><span class="p1">Please </span><span class="bl">st</span><span class="p2">op and </span><span class="bl">cl</span><span class="p3">ap for the winner.</span></p>
+    <button onclick="speak('Please stop and clap for the winner.')">Hear sentence 1</button>
+    <p><span class="p2">We sat under the big </span><span class="bl">bl</span><span class="p1">ue </span><span class="bl">tr</span><span class="p3">ee.</span></p>
+    <button onclick="speak('We sat under the big blue tree.')">Hear sentence 2</button>
+    <p><span class="p3">The bird made a nest on the highest </span><span class="bl">br</span><span class="p1">anch.</span></p>
+    <button onclick="speak('The bird made a nest on the highest branch.')">Hear sentence 3</button>
+    <p><span class="p1">It was the best trip of the whole year.</span></p>
+    <button onclick="speak('It was the best trip of the whole year.')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red marks the blend. Other colours change so neighbouring parts look different.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
