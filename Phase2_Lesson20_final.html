@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 2 Lesson 20: Final Mixed Challenge</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .dig { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 2 • Lesson 20</h1>
+  <h2>Final Mixed Challenge</h2>
+  <p style="text-align:center;">Red = digraph. Other colours alternate. A longer story to finish Phase 2.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('ship')"><span class="dig">sh</span><span class="p1">ip</span></div>
+    <div class="word" onclick="speak('queen')"><span class="dig">qu</span><span class="p2">een</span></div>
+    <div class="word" onclick="speak('phone')"><span class="dig">ph</span><span class="p1">one</span></div>
+    <div class="word" onclick="speak('duck')"><span class="p3">du</span><span class="dig">ck</span></div>
+    <div class="word" onclick="speak('sing')"><span class="p2">si</span><span class="dig">ng</span></div>
+    <div class="word" onclick="speak('when')"><span class="dig">wh</span><span class="p1">en</span></div>
+  </div>
+  <h2>Story: The Queen’s Day</h2>
+  <div class="story">
+    <p><span class="p1">The </span><span class="dig">qu</span><span class="p2">een took a </span><span class="dig">ph</span><span class="p3">oto of the big </span><span class="dig">sh</span><span class="p1">ip.</span></p>
+    <button onclick="speak('The queen took a photo of the big ship.')">Hear sentence 1</button>
+    <p><span class="p2">She called her friend on the </span><span class="dig">ph</span><span class="p1">one </span><span class="dig">wh</span><span class="p3">en she got home.</span></p>
+    <button onclick="speak('She called her friend on the phone when she got home.')">Hear sentence 2</button>
+    <p><span class="p3">They talked about the happy </span><span class="dig">du</span><span class="dig">ck</span><span class="p1"> that likes to </span><span class="dig">si</span><span class="dig">ng</span><span class="p2">.</span></p>
+    <button onclick="speak('They talked about the happy duck that likes to sing.')">Hear sentence 3</button>
+    <p><span class="p1">It was a wonderful day with lots of </span><span class="dig">ch</span><span class="p2">ats and smiles.</span></p>
+    <button onclick="speak('It was a wonderful day with lots of chats and smiles.')">Hear sentence 4</button>
+    <p><span class="p2">Now you can read many words with digraphs!</span></p>
+    <button onclick="speak('Now you can read many words with digraphs!')">Hear sentence 5</button>
+  </div>
+  <div class="practice">Red marks every digraph. Other colours change so neighbouring parts look different. Great job finishing Phase 2!</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
