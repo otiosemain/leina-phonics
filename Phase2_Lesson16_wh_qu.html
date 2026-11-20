@@ -1,1 +1,56 @@
-placeholder for wh qu
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 2 Lesson 16: wh and qu Practice</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .dig { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 2 • Lesson 16</h1>
+  <h2>wh and qu Practice</h2>
+  <p style="text-align:center;">Red = digraph. Other colours alternate.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('what')"><span class="dig">wh</span><span class="p1">at</span></div>
+    <div class="word" onclick="speak('when')"><span class="dig">wh</span><span class="p2">en</span></div>
+    <div class="word" onclick="speak('queen')"><span class="dig">qu</span><span class="p1">een</span></div>
+    <div class="word" onclick="speak('quick')"><span class="dig">qu</span><span class="p3">ick</span></div>
+    <div class="word" onclick="speak('quiet')"><span class="dig">qu</span><span class="p2">iet</span></div>
+    <div class="word" onclick="speak('which')"><span class="dig">wh</span><span class="p1">ich</span></div>
+  </div>
+  <h2>Story: What and When</h2>
+  <div class="story">
+    <p><span class="dig">Wh</span><span class="p1">at does the </span><span class="dig">qu</span><span class="p2">een want to do today?</span></p>
+    <button onclick="speak('What does the queen want to do today?')">Hear sentence 1</button>
+    <p><span class="p2">She is very </span><span class="dig">qu</span><span class="p3">ick </span><span class="dig">wh</span><span class="p1">en she needs to decide.</span></p>
+    <button onclick="speak('She is very quick when she needs to decide.')">Hear sentence 2</button>
+    <p><span class="p3">Everyone stays </span><span class="dig">qu</span><span class="p1">iet </span><span class="dig">wh</span><span class="p2">ile she thinks.</span></p>
+    <button onclick="speak('Everyone stays quiet while she thinks.')">Hear sentence 3</button>
+    <p><span class="p1">Then she tells us </span><span class="dig">wh</span><span class="p3">ich game we will play.</span></p>
+    <button onclick="speak('Then she tells us which game we will play.')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red marks the digraph. Other colours change so parts next to each other look different.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
