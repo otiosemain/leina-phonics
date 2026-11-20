@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 4 Lesson 10: Mixed Vowel Teams</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .team { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 4 • Lesson 10</h1>
+  <h2>Mixed Vowel Teams Review</h2>
+  <p style="text-align:center;">Red = vowel team. Other colours alternate. A longer story to finish this set of Phase 4.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('rain')"><span class="p1">r</span><span class="team">ai</span><span class="p2">n</span></div>
+    <div class="word" onclick="speak('tree')"><span class="p2">tr</span><span class="team">ee</span></div>
+    <div class="word" onclick="speak('boat')"><span class="p1">b</span><span class="team">oa</span><span class="p3">t</span></div>
+    <div class="word" onclick="speak('night')"><span class="p2">n</span><span class="team">igh</span><span class="p1">t</span></div>
+    <div class="word" onclick="speak('play')"><span class="p3">pl</span><span class="team">ay</span></div>
+    <div class="word" onclick="speak('light')"><span class="p1">l</span><span class="team">igh</span><span class="p2">t</span></div>
+  </div>
+  <h2>Story: A Rainy Night</h2>
+  <div class="story">
+    <p><span class="p1">It started to </span><span class="team">r</span><span class="team">ai</span><span class="p2">n</span><span class="p3"> just after we finished our game.</span></p>
+    <button onclick="speak('It started to rain just after we finished our game.')">Hear sentence 1</button>
+    <p><span class="p2">We sat under the big </span><span class="team">tr</span><span class="team">ee</span><span class="p1"> until the rain stopped.</span></p>
+    <button onclick="speak('We sat under the big tree until the rain stopped.')">Hear sentence 2</button>
+    <p><span class="p3">Then we rowed the small </span><span class="team">b</span><span class="team">oa</span><span class="p2">t</span><span class="p1"> back home.</span></p>
+    <button onclick="speak('Then we rowed the small boat back home.')">Hear sentence 3</button>
+    <p><span class="p1">At </span><span class="team">n</span><span class="team">igh</span><span class="p3">t</span><span class="p2"> we turned on the bright light and read a book.</span></p>
+    <button onclick="speak('At night we turned on the bright light and read a book.')">Hear sentence 4</button>
+    <p><span class="p2">It was a fun day even with the rain!</span></p>
+    <button onclick="speak('It was a fun day even with the rain!')">Hear sentence 5</button>
+  </div>
+  <div class="practice">Red marks every vowel team. Other colours change so neighbouring parts look different. Great job on Phase 4 Lesson 10!</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
