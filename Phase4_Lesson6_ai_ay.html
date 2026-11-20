@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 4 Lesson 6: ai and ay</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .team { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 4 • Lesson 6</h1>
+  <h2>ai and ay (long a)</h2>
+  <p style="text-align:center;">Red = the vowel team. Both make the long “a” sound.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('rain')"><span class="p1">r</span><span class="team">ai</span><span class="p2">n</span></div>
+    <div class="word" onclick="speak('train')"><span class="p2">tr</span><span class="team">ai</span><span class="p1">n</span></div>
+    <div class="word" onclick="speak('play')"><span class="p1">pl</span><span class="team">ay</span></div>
+    <div class="word" onclick="speak('day')"><span class="p3">d</span><span class="team">ay</span></div>
+    <div class="word" onclick="speak('tail')"><span class="p2">t</span><span class="team">ai</span><span class="p1">l</span></div>
+    <div class="word" onclick="speak('say')"><span class="p1">s</span><span class="team">ay</span></div>
+  </div>
+  <h2>Story: Rain and Play</h2>
+  <div class="story">
+    <p><span class="p1">It started to </span><span class="team">r</span><span class="team">ai</span><span class="p2">n</span><span class="p3"> in the afternoon.</span></p>
+    <button onclick="speak('It started to rain in the afternoon.')">Hear sentence 1</button>
+    <p><span class="p2">We can </span><span class="team">pl</span><span class="team">ay</span><span class="p1"> inside on a rainy day.</span></p>
+    <button onclick="speak('We can play inside on a rainy day.')">Hear sentence 2</button>
+    <p><span class="p3">The dog wags its </span><span class="team">t</span><span class="team">ai</span><span class="p2">l</span><span class="p1"> when it is happy.</span></p>
+    <button onclick="speak('The dog wags its tail when it is happy.')">Hear sentence 3</button>
+    <p><span class="p1">Please </span><span class="team">s</span><span class="team">ay</span><span class="p3"> thank you after the game.</span></p>
+    <button onclick="speak('Please say thank you after the game.')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red marks the ai or ay team. Both make the long “a” sound.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
