@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 2 Lesson 9: qu Digraph</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .s1 { color: #e74c3c; font-weight: bold; }
+  .s2 { color: #3498db; font-weight: bold; }
+  .s3 { color: #27ae60; font-weight: bold; }
+  .s4 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 2 • Lesson 9</h1>
+  <h2>qu Digraph</h2>
+  <p style="text-align:center;">Tap the words or sentences to hear them. “qu” makes the /kw/ sound.</p>
+
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('queen')"><span class="s1">qu</span><span class="s2">een</span></div>
+    <div class="word" onclick="speak('quick')"><span class="s1">qu</span><span class="s2">ick</span></div>
+    <div class="word" onclick="speak('quiet')"><span class="s1">qu</span><span class="s3">iet</span></div>
+    <div class="word" onclick="speak('quiz')"><span class="s1">qu</span><span class="s4">iz</span></div>
+    <div class="word" onclick="speak('quit')"><span class="s1">qu</span><span class="s2">it</span></div>
+    <div class="word" onclick="speak('square')"><span class="s3">squ</span><span class="s4">are</span></div>
+  </div>
+
+  <h2>Story: The Quick Queen</h2>
+  <div class="story">
+    <p><span class="s1">The qu</span><span class="s2">een was very qu</span><span class="s2">ick to answer the qu</span><span class="s4">iz.</span></p>
+    <button onclick="speak('The queen was very quick to answer the quiz.')">Hear sentence 1</button>
+
+    <p><span class="s3">Everyone stayed qu</span><span class="s1">iet while she thought.</span></p>
+    <button onclick="speak('Everyone stayed quiet while she thought.')">Hear sentence 2</button>
+
+    <p><span class="s2">She did not qu</span><span class="s1">it until she finished every question.</span></p>
+    <button onclick="speak('She did not quit until she finished every question.')">Hear sentence 3</button>
+
+    <p><span class="s4">Then she drew a big squ</span><span class="s3">are on the board.</span></p>
+    <button onclick="speak('Then she drew a big square on the board.')">Hear sentence 4</button>
+  </div>
+
+  <div class="practice">
+    Practice: Point to the coloured “qu” and say the /kw/ sound, then blend the whole word.
+  </div>
+
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9;
+        u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
