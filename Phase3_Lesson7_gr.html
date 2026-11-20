@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 3 Lesson 7: gr Blends</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .bl { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 3 • Lesson 7</h1>
+  <h2>gr Blends</h2>
+  <p style="text-align:center;">Red = the “gr” blend. Other colours alternate.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('green')"><span class="bl">gr</span><span class="p1">een</span></div>
+    <div class="word" onclick="speak('grow')"><span class="bl">gr</span><span class="p2">ow</span></div>
+    <div class="word" onclick="speak('grass')"><span class="bl">gr</span><span class="p1">ass</span></div>
+    <div class="word" onclick="speak('great')"><span class="bl">gr</span><span class="p3">eat</span></div>
+    <div class="word" onclick="speak('grape')"><span class="bl">gr</span><span class="p2">ape</span></div>
+    <div class="word" onclick="speak('group')"><span class="bl">gr</span><span class="p1">oup</span></div>
+  </div>
+  <h2>Story: Green Grass</h2>
+  <div class="story">
+    <p><span class="p1">The </span><span class="bl">gr</span><span class="p2">ass is very </span><span class="bl">gr</span><span class="p3">een after the rain.</span></p>
+    <button onclick="speak('The grass is very green after the rain.')">Hear sentence 1</button>
+    <p><span class="p2">Plants </span><span class="bl">gr</span><span class="p1">ow well in the sunshine.</span></p>
+    <button onclick="speak('Plants grow well in the sunshine.')">Hear sentence 2</button>
+    <p><span class="p3">We had a </span><span class="bl">gr</span><span class="p1">eat time picking </span><span class="bl">gr</span><span class="p2">apes.</span></p>
+    <button onclick="speak('We had a great time picking grapes.')">Hear sentence 3</button>
+    <p><span class="p1">Our group sat on the soft green grass.</span></p>
+    <button onclick="speak('Our group sat on the soft green grass.')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red marks the “gr” blend. Other colours change so neighbouring parts look different.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
