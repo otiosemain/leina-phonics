@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 3 Lesson 11: br Blends</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .bl { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 3 • Lesson 11</h1>
+  <h2>br Blends</h2>
+  <p style="text-align:center;">Red = the “br” blend. Other colours alternate.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('brown')"><span class="bl">br</span><span class="p1">own</span></div>
+    <div class="word" onclick="speak('bread')"><span class="bl">br</span><span class="p2">ead</span></div>
+    <div class="word" onclick="speak('bring')"><span class="bl">br</span><span class="p1">ing</span></div>
+    <div class="word" onclick="speak('brush')"><span class="bl">br</span><span class="p3">ush</span></div>
+    <div class="word" onclick="speak('bridge')"><span class="bl">br</span><span class="p2">idge</span></div>
+    <div class="word" onclick="speak('brave')"><span class="bl">br</span><span class="p1">ave</span></div>
+  </div>
+  <h2>Story: Brown Bread</h2>
+  <div class="story">
+    <p><span class="p1">Please </span><span class="bl">br</span><span class="p2">ing the brown </span><span class="bl">br</span><span class="p3">ead to the table.</span></p>
+    <button onclick="speak('Please bring the brown bread to the table.')">Hear sentence 1</button>
+    <p><span class="p2">We walked across the old </span><span class="bl">br</span><span class="p1">idge.</span></p>
+    <button onclick="speak('We walked across the old bridge.')">Hear sentence 2</button>
+    <p><span class="p3">She is very </span><span class="bl">br</span><span class="p1">ave when she tries new things.</span></p>
+    <button onclick="speak('She is very brave when she tries new things.')">Hear sentence 3</button>
+    <p><span class="p1">Remember to </span><span class="bl">br</span><span class="p2">ush your teeth after breakfast.</span></p>
+    <button onclick="speak('Remember to brush your teeth after breakfast.')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red marks the “br” blend. Other colours change so neighbouring parts look different.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
