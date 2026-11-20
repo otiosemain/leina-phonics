@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 3 Lesson 13: dr and fl Blends</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .bl { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 3 • Lesson 13</h1>
+  <h2>dr and fl Blends</h2>
+  <p style="text-align:center;">Red = the blend. Other colours alternate.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('drum')"><span class="bl">dr</span><span class="p1">um</span></div>
+    <div class="word" onclick="speak('drink')"><span class="bl">dr</span><span class="p2">ink</span></div>
+    <div class="word" onclick="speak('drive')"><span class="bl">dr</span><span class="p1">ive</span></div>
+    <div class="word" onclick="speak('fly')"><span class="bl">fl</span><span class="p3">y</span></div>
+    <div class="word" onclick="speak('flower')"><span class="bl">fl</span><span class="p2">ower</span></div>
+    <div class="word" onclick="speak('flag')"><span class="bl">fl</span><span class="p1">ag</span></div>
+  </div>
+  <h2>Story: Drum and Flower</h2>
+  <div class="story">
+    <p><span class="p1">He likes to play the big </span><span class="bl">dr</span><span class="p2">um.</span></p>
+    <button onclick="speak('He likes to play the big drum.')">Hear sentence 1</button>
+    <p><span class="p2">Please </span><span class="bl">dr</span><span class="p3">ink your water slowly.</span></p>
+    <button onclick="speak('Please drink your water slowly.')">Hear sentence 2</button>
+    <p><span class="p3">A pretty </span><span class="bl">fl</span><span class="p1">ower grew in the garden.</span></p>
+    <button onclick="speak('A pretty flower grew in the garden.')">Hear sentence 3</button>
+    <p><span class="p1">Birds can </span><span class="bl">fl</span><span class="p2">y high in the sky.</span></p>
+    <button onclick="speak('Birds can fly high in the sky.')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red marks the blend. Other colours change so neighbouring parts look different.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
