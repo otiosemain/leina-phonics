@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 9 Lesson 15: Mixed Review 13</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .silent { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 9 • Lesson 15</h1>
+  <h2>Mixed Review 13</h2>
+  <p style="text-align:center;">Red = silent letter. Other colours alternate.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('sign')"><span class="p1">si</span><span class="silent">g</span><span class="p2">n</span></div>
+    <div class="word" onclick="speak('calm')"><span class="p1">ca</span><span class="silent">l</span><span class="p3">m</span></div>
+    <div class="word" onclick="speak('design')"><span class="p2">desi</span><span class="silent">g</span><span class="p1">n</span></div>
+    <div class="word" onclick="speak('half')"><span class="p3">ha</span><span class="silent">l</span><span class="p2">f</span></div>
+    <div class="word" onclick="speak('foreign')"><span class="p1">forei</span><span class="silent">g</span><span class="p3">n</span></div>
+    <div class="word" onclick="speak('walk')"><span class="p2">wa</span><span class="silent">l</span><span class="p1">k</span></div>
+  </div>
+  <h2>Story: Mixed Review</h2>
+  <div class="story">
+    <p><span class="p1">Please </span><span class="p2">si</span><span class="silent">g</span><span class="p3">n</span><span class="p1"> your name.</span></p>
+    <button onclick="speak('Please sign your name.')">Hear sentence 1</button>
+    <p><span class="p2">Please stay </span><span class="p1">ca</span><span class="silent">l</span><span class="p3">m</span><span class="p2">.</span></p>
+    <button onclick="speak('Please stay calm.')">Hear sentence 2</button>
+    <p><span class="p3">She likes the </span><span class="p2">desi</span><span class="silent">g</span><span class="p1">n</span><span class="p3">.</span></p>
+    <button onclick="speak('She likes the design.')">Hear sentence 3</button>
+    <p><span class="p1">She ate </span><span class="p3">ha</span><span class="silent">l</span><span class="p2">f</span><span class="p1"> the apple.</span></p>
+    <button onclick="speak('She ate half the apple.')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red marks the silent letter. Other colours change so neighbouring parts look different.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
