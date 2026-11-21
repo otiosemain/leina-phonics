@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 6 Lesson 9: Mixed Review 7</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .soft { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 6 • Lesson 9</h1>
+  <h2>Mixed Review 7</h2>
+  <p style="text-align:center;">Red = soft c or soft g. Other colours alternate.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('ice')"><span class="p1">i</span><span class="soft">c</span><span class="p2">e</span></div>
+    <div class="word" onclick="speak('gem')"><span class="soft">g</span><span class="p1">em</span></div>
+    <div class="word" onclick="speak('city')"><span class="soft">c</span><span class="p2">ity</span></div>
+    <div class="word" onclick="speak('page')"><span class="p1">pa</span><span class="soft">g</span><span class="p3">e</span></div>
+    <div class="word" onclick="speak('nice')"><span class="p2">ni</span><span class="soft">c</span><span class="p1">e</span></div>
+    <div class="word" onclick="speak('magic')"><span class="p3">ma</span><span class="soft">g</span><span class="p2">ic</span></div>
+  </div>
+  <h2>Story: Mixed Review</h2>
+  <div class="story">
+    <p><span class="p1">The </span><span class="soft">i</span><span class="soft">c</span><span class="p2">e</span><span class="p3"> is cold in the city.</span></p>
+    <button onclick="speak('The ice is cold in the city.')">Hear sentence 1</button>
+    <p><span class="p2">She found a shiny </span><span class="soft">g</span><span class="p1">em</span><span class="p3"> in the box.</span></p>
+    <button onclick="speak('She found a shiny gem in the box.')">Hear sentence 2</button>
+    <p><span class="p3">Please turn the </span><span class="p1">pa</span><span class="soft">g</span><span class="p2">e</span><span class="p1"> carefully.</span></p>
+    <button onclick="speak('Please turn the page carefully.')">Hear sentence 3</button>
+    <p><span class="p1">The </span><span class="p2">ma</span><span class="soft">g</span><span class="p3">ic</span><span class="p2"> show was very nice.</span></p>
+    <button onclick="speak('The magic show was very nice.')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red marks the soft c or soft g. Other colours change so neighbouring parts look different.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
