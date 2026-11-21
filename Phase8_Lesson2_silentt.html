@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 8 Lesson 2: Silent t</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .silent { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 8 • Lesson 2</h1>
+  <h2>Silent t</h2>
+  <p style="text-align:center;">Red = silent “t”.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('castle')"><span class="p1">cas</span><span class="silent">t</span><span class="p2">le</span></div>
+    <div class="word" onclick="speak('listen')"><span class="p1">lis</span><span class="silent">t</span><span class="p3">en</span></div>
+    <div class="word" onclick="speak('often')"><span class="p2">of</span><span class="silent">t</span><span class="p1">en</span></div>
+    <div class="word" onclick="speak('whistle')"><span class="p3">whis</span><span class="silent">t</span><span class="p2">le</span></div>
+    <div class="word" onclick="speak('ballet')"><span class="p1">balle</span><span class="silent">t</span></div>
+  </div>
+  <h2>Story: Silent t</h2>
+  <div class="story">
+    <p><span class="p1">We visited a big </span><span class="p2">cas</span><span class="silent">t</span><span class="p3">le</span><span class="p1">.</span></p>
+    <button onclick="speak('We visited a big castle.')">Hear sentence 1</button>
+    <p><span class="p2">Please </span><span class="p1">lis</span><span class="silent">t</span><span class="p3">en</span><span class="p2"> carefully.</span></p>
+    <button onclick="speak('Please listen carefully.')">Hear sentence 2</button>
+    <p><span class="p3">She </span><span class="p2">of</span><span class="silent">t</span><span class="p1">en</span><span class="p3"> sings.</span></p>
+    <button onclick="speak('She often sings.')">Hear sentence 3</button>
+    <p><span class="p1">The </span><span class="p3">whis</span><span class="silent">t</span><span class="p2">le</span><span class="p1"> was loud.</span></p>
+    <button onclick="speak('The whistle was loud.')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red marks the silent t. Other colours change so neighbouring parts look different.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
