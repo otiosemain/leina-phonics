@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 2 Lesson 4: wh digraph</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .digraph { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 2 • Lesson 4</h1>
+  <h2>wh digraph</h2>
+  <p style="text-align:center;">Red = “wh”.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('when')"><span class="digraph">wh</span><span class="p1">en</span></div>
+    <div class="word" onclick="speak('what')"><span class="digraph">wh</span><span class="p2">at</span></div>
+    <div class="word" onclick="speak('where')"><span class="digraph">wh</span><span class="p3">ere</span></div>
+    <div class="word" onclick="speak('why')"><span class="digraph">wh</span><span class="p1">y</span></div>
+    <div class="word" onclick="speak('white')"><span class="digraph">wh</span><span class="p2">ite</span></div>
+    <div class="word" onclick="speak('whale')"><span class="digraph">wh</span><span class="p3">ale</span></div>
+  </div>
+  <h2>Story: Questions</h2>
+  <div class="story">
+    <p><span class="p1">When</span><span class="p2"> will we go to the park?</span></p>
+    <button onclick="speak('When will we go to the park?')">Hear sentence 1</button>
+    <p><span class="p2">What</span><span class="p3"> is your favourite colour?</span></p>
+    <button onclick="speak('What is your favourite colour?')">Hear sentence 2</button>
+    <p><span class="p3">Where</span><span class="p1"> did you put my bag?</span></p>
+    <button onclick="speak('Where did you put my bag?')">Hear sentence 3</button>
+    <p><span class="p1">Why</span><span class="p2"> is the sky blue?</span></p>
+    <button onclick="speak('Why is the sky blue?')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red marks the digraph. Other colours change so neighbouring parts look different.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
