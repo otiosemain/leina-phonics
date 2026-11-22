@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 1 Lesson 3: -ap family</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .vowel { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 1 • Lesson 3</h1>
+  <h2>-ap family</h2>
+  <p style="text-align:center;">Red = short a.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('cap')"><span class="p1">c</span><span class="vowel">a</span><span class="p2">p</span></div>
+    <div class="word" onclick="speak('map')"><span class="p1">m</span><span class="vowel">a</span><span class="p2">p</span></div>
+    <div class="word" onclick="speak('tap')"><span class="p1">t</span><span class="vowel">a</span><span class="p2">p</span></div>
+    <div class="word" onclick="speak('nap')"><span class="p1">n</span><span class="vowel">a</span><span class="p2">p</span></div>
+    <div class="word" onclick="speak('lap')"><span class="p1">l</span><span class="vowel">a</span><span class="p2">p</span></div>
+    <div class="word" onclick="speak('gap')"><span class="p1">g</span><span class="vowel">a</span><span class="p2">p</span></div>
+  </div>
+  <h2>Story: The Cap</h2>
+  <div class="story">
+    <p><span class="p1">Dad wears a red </span><span class="p1">c</span><span class="vowel">a</span><span class="p2">p</span><span class="p1">.</span></p>
+    <button onclick="speak('Dad wears a red cap.')">Hear sentence 1</button>
+    <p><span class="p2">We looked at the </span><span class="p1">m</span><span class="vowel">a</span><span class="p2">p</span><span class="p1"> together.</span></p>
+    <button onclick="speak('We looked at the map together.')">Hear sentence 2</button>
+    <p><span class="p1">Please do not </span><span class="p1">t</span><span class="vowel">a</span><span class="p2">p</span><span class="p1"> the glass.</span></p>
+    <button onclick="speak('Please do not tap the glass.')">Hear sentence 3</button>
+    <p><span class="p2">I had a short </span><span class="p1">n</span><span class="vowel">a</span><span class="p2">p</span><span class="p1"> after lunch.</span></p>
+    <button onclick="speak('I had a short nap after lunch.')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red marks the short vowel. Other colours change so neighbouring parts look different.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
