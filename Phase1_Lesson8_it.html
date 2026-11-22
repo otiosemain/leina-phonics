@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 1 Lesson 8: -it family</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .vowel { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 1 • Lesson 8</h1>
+  <h2>-it family</h2>
+  <p style="text-align:center;">Red = short i.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('sit')"><span class="p1">s</span><span class="vowel">i</span><span class="p2">t</span></div>
+    <div class="word" onclick="speak('bit')"><span class="p1">b</span><span class="vowel">i</span><span class="p2">t</span></div>
+    <div class="word" onclick="speak('hit')"><span class="p1">h</span><span class="vowel">i</span><span class="p2">t</span></div>
+    <div class="word" onclick="speak('fit')"><span class="p1">f</span><span class="vowel">i</span><span class="p2">t</span></div>
+    <div class="word" onclick="speak('kit')"><span class="p1">k</span><span class="vowel">i</span><span class="p2">t</span></div>
+    <div class="word" onclick="speak('pit')"><span class="p1">p</span><span class="vowel">i</span><span class="p2">t</span></div>
+  </div>
+  <h2>Story: Sit</h2>
+  <div class="story">
+    <p><span class="p1">Please </span><span class="p1">s</span><span class="vowel">i</span><span class="p2">t</span><span class="p1"> on the chair.</span></p>
+    <button onclick="speak('Please sit on the chair.')">Hear sentence 1</button>
+    <p><span class="p2">The dog took a small </span><span class="p1">b</span><span class="vowel">i</span><span class="p2">t</span><span class="p1"> of the biscuit.</span></p>
+    <button onclick="speak('The dog took a small bit of the biscuit.')">Hear sentence 2</button>
+    <p><span class="p1">She can </span><span class="p1">h</span><span class="vowel">i</span><span class="p2">t</span><span class="p1"> the ball hard.</span></p>
+    <button onclick="speak('She can hit the ball hard.')">Hear sentence 3</button>
+    <p><span class="p2">These shoes do not </span><span class="p1">f</span><span class="vowel">i</span><span class="p2">t</span><span class="p1"> me.</span></p>
+    <button onclick="speak('These shoes do not fit me.')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red marks the short vowel. Other colours change so neighbouring parts look different.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
