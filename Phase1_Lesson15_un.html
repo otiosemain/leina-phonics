@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 1 Lesson 15: -un family</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .vowel { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 1 • Lesson 15</h1>
+  <h2>-un family</h2>
+  <p style="text-align:center;">Red = short u.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('sun')"><span class="p1">s</span><span class="vowel">u</span><span class="p2">n</span></div>
+    <div class="word" onclick="speak('run')"><span class="p1">r</span><span class="vowel">u</span><span class="p2">n</span></div>
+    <div class="word" onclick="speak('fun')"><span class="p1">f</span><span class="vowel">u</span><span class="p2">n</span></div>
+    <div class="word" onclick="speak('bun')"><span class="p1">b</span><span class="vowel">u</span><span class="p2">n</span></div>
+    <div class="word" onclick="speak('gun')"><span class="p1">g</span><span class="vowel">u</span><span class="p2">n</span></div>
+    <div class="word" onclick="speak('nun')"><span class="p1">n</span><span class="vowel">u</span><span class="p2">n</span></div>
+  </div>
+  <h2>Story: Fun in the Sun</h2>
+  <div class="story">
+    <p><span class="p1">The </span><span class="p1">s</span><span class="vowel">u</span><span class="p2">n</span><span class="p1"> is bright today.</span></p>
+    <button onclick="speak('The sun is bright today.')">Hear sentence 1</button>
+    <p><span class="p2">We like to </span><span class="p1">r</span><span class="vowel">u</span><span class="p2">n</span><span class="p1"> in the park.</span></p>
+    <button onclick="speak('We like to run in the park.')">Hear sentence 2</button>
+    <p><span class="p1">It is so much </span><span class="p1">f</span><span class="vowel">u</span><span class="p2">n</span><span class="p1"> to play.</span></p>
+    <button onclick="speak('It is so much fun to play.')">Hear sentence 3</button>
+    <p><span class="p2">I ate a soft </span><span class="p1">b</span><span class="vowel">u</span><span class="p2">n</span><span class="p1"> for breakfast.</span></p>
+    <button onclick="speak('I ate a soft bun for breakfast.')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red marks the short vowel. Other colours change so neighbouring parts look different.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
