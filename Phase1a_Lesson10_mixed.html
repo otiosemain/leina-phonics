@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 1a Lesson 10: final bridge</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .digraph { color: #e74c3c; font-weight: bold; }
+  .vowel { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 1a • Lesson 10</h1>
+  <h2>Final Bridge Challenge</h2>
+  <p style="text-align:center;">Red = digraph or short vowel. Ready for Phase 2?</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('ship')"><span class="digraph">sh</span><span class="p1">ip</span></div>
+    <div class="word" onclick="speak('chip')"><span class="digraph">ch</span><span class="p2">ip</span></div>
+    <div class="word" onclick="speak('cat')"><span class="p1">c</span><span class="vowel">a</span><span class="p2">t</span></div>
+    <div class="word" onclick="speak('shop')"><span class="digraph">sh</span><span class="p2">op</span></div>
+    <div class="word" onclick="speak('much')"><span class="p1">mu</span><span class="digraph">ch</span></div>
+    <div class="word" onclick="speak('dog')"><span class="p1">d</span><span class="vowel">o</span><span class="p2">g</span></div>
+  </div>
+  <h2>Story: Ready for Phase 2</h2>
+  <div class="story">
+    <p><span class="p1">The </span><span class="digraph">sh</span><span class="p2">ip</span><span class="p1"> sailed across the sea.</span></p>
+    <button onclick="speak('The ship sailed across the sea.')">Hear sentence 1</button>
+    <p><span class="p2">We had </span><span class="digraph">ch</span><span class="p1">ips</span><span class="p2"> with our lunch.</span></p>
+    <button onclick="speak('We had chips with our lunch.')">Hear sentence 2</button>
+    <p><span class="p1">The </span><span class="p1">c</span><span class="vowel">a</span><span class="p2">t</span><span class="p1"> sat on the mat in the sun.</span></p>
+    <button onclick="speak('The cat sat on the mat in the sun.')">Hear sentence 3</button>
+    <p><span class="p2">How </span><span class="p1">mu</span><span class="digraph">ch</span><span class="p2"> does the shop cost? You can do it!</span></p>
+    <button onclick="speak('How much does the shop cost? You can do it!')">Hear sentence 4</button>
+  </div>
+  <div class="practice">Red marks the digraph or short vowel. Great job on Phase 1a! Try Phase 2 next.</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
