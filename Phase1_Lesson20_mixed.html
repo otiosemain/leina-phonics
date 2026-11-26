@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 1 Lesson 20: Final Mixed Challenge</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: #fffef5; margin: 16px; font-size: 20px; color: #222; }
+  h1, h2 { text-align: center; }
+  .word { display: inline-block; margin: 8px; padding: 12px 16px; border-radius: 12px; background: white; border: 2px solid #ddd; cursor: pointer; font-size: 26px; }
+  .vowel { color: #e74c3c; font-weight: bold; }
+  .p1 { color: #3498db; font-weight: bold; }
+  .p2 { color: #27ae60; font-weight: bold; }
+  .p3 { color: #f39c12; font-weight: bold; }
+  button { margin: 6px; padding: 8px 14px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .story { text-align: center; margin: 20px 0; line-height: 1.7; }
+  .practice { margin-top: 20px; font-size: 16px; text-align: center; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Phase 1 • Lesson 20</h1>
+  <h2>Final Mixed Challenge</h2>
+  <p style="text-align:center;">Red = short vowel. A longer story to finish Phase 1.</p>
+  <h2>Flashcards</h2>
+  <div style="text-align:center;">
+    <div class="word" onclick="speak('cat')"><span class="p1">c</span><span class="vowel">a</span><span class="p2">t</span></div>
+    <div class="word" onclick="speak('pet')"><span class="p1">p</span><span class="vowel">e</span><span class="p2">t</span></div>
+    <div class="word" onclick="speak('big')"><span class="p1">b</span><span class="vowel">i</span><span class="p2">g</span></div>
+    <div class="word" onclick="speak('dog')"><span class="p1">d</span><span class="vowel">o</span><span class="p2">g</span></div>
+    <div class="word" onclick="speak('sun')"><span class="p1">s</span><span class="vowel">u</span><span class="p2">n</span></div>
+    <div class="word" onclick="speak('run')"><span class="p1">r</span><span class="vowel">u</span><span class="p2">n</span></div>
+  </div>
+  <h2>Story: A Fun Day</h2>
+  <div class="story">
+    <p><span class="p1">The </span><span class="p1">c</span><span class="vowel">a</span><span class="p2">t</span><span class="p3"> and the dog play in the sun.</span></p>
+    <button onclick="speak('The cat and the dog play in the sun.')">Hear sentence 1</button>
+    <p><span class="p2">My small </span><span class="p1">p</span><span class="vowel">e</span><span class="p2">t</span><span class="p3"> likes to run and hop.</span></p>
+    <button onclick="speak('My small pet likes to run and hop.')">Hear sentence 2</button>
+    <p><span class="p3">We saw a </span><span class="p1">b</span><span class="vowel">i</span><span class="p2">g</span><span class="p1"> bug on the log.</span></p>
+    <button onclick="speak('We saw a big bug on the log.')">Hear sentence 3</button>
+    <p><span class="p1">It is so much fun to play with my pet in the sun.</span></p>
+    <button onclick="speak('It is so much fun to play with my pet in the sun.')">Hear sentence 4</button>
+    <p><span class="p2">Now you can read many short vowel words!</span></p>
+    <button onclick="speak('Now you can read many short vowel words!')">Hear sentence 5</button>
+  </div>
+  <div class="practice">Red marks the short vowel. Other colours change so neighbouring parts look different. Great job finishing Phase 1!</div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9; u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }
+  </script>
+</body>
+</html>
